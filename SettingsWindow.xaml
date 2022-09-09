@@ -1,0 +1,151 @@
+﻿<Window x:Class="UnderwaterHockeyTimer.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UnderwaterHockeyTimer"
+        mc:Ignorable="d"
+        Title="Settings" Height="330" Width="535" ResizeMode="NoResize" Loaded="Window_Loaded" FontSize="16" WindowStartupLocation="CenterScreen" IsVisibleChanged="Window_IsVisibleChanged">
+    <Grid>
+        <TabControl x:Name="tabControlSettings">
+            <TabItem Header="Game">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Height="220">
+                            <StackPanel Orientation="Vertical">
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="135" Height="86" BorderThickness="2"/>
+                                    <Label Content="First game start" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <TextBox x:Name="txtFirstGame" Height="30" VerticalAlignment="Top" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="9:00am" Margin="20,24,10,0"/>
+                                    <Button x:Name="btnSetFirstGame" Content="Set first game" VerticalAlignment="Bottom" Margin="20,0,10,10" Height="25" Padding="0" FontSize="16" Click="btnSetFirstGame_Click"/>
+                                </Grid>
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="135" Height="86" BorderThickness="2"/>
+                                    <Label Content="Goal edit" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <Label Content="Black:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,27,0,0"/>
+                                    <TextBox x:Name="txtGoalsBlack" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="0" Margin="0,24,10,0"/>
+                                    <Label Content="White:" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="2,0" Margin="20,62,0,0"/>
+                                    <TextBox x:Name="txtGoalsWhite" HorizontalAlignment="Right" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="0" FontSize="16" Margin="0,59,10,0"/>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel>
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="170" Height="86" BorderThickness="2"/>
+                                    <Label Content="Game length" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <TextBox x:Name="txtGameMinutes" HorizontalAlignment="Right" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="10" FontSize="16" Margin="0,24,10,0"/>
+                                    <Label Content="Minutes:" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="2,0" Margin="20,27,0,0"/>
+                                    <Label Content="Halves:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,62,0,0"/>
+                                    <TextBox x:Name="txtGameHalves" HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="2" Margin="0,59,10,0"/>
+                                </Grid>
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="170" Height="50" BorderThickness="2"/>
+                                    <Label Content="Half time length" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <TextBox x:Name="txtHalfTimeLength" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="2" Margin="0,24,10,0"/>
+                                    <Label Content="Minutes:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,26,0,0"/>
+                                </Grid>
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="170" Height="50" BorderThickness="2"/>
+                                    <Label Content="Catch up time" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <TextBox x:Name="txtCatchUp" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="0" Margin="0,24,10,0"/>
+                                    <Label Content="Seconds:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,26,0,0"/>
+                                </Grid>
+                            </StackPanel>
+                            <StackPanel>
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="170" Height="86" BorderThickness="2"/>
+                                    <Label Content="Time between games" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <TextBox x:Name="txtTimeBetweenGamesMin" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="2" Margin="0,24,10,0"/>
+                                    <Label Content="Min Minutes:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,26,0,0"/>
+                                    <TextBox x:Name="txtTimeBetweenGamesMax" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="10" Margin="0,59,10,0"/>
+                                    <Label Content="Max Minutes:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,62,0,0"/>
+                                </Grid>
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="170" Height="86" BorderThickness="2"/>
+                                    <Label Content="Game No" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <TextBox x:Name="txtGameNoStart" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="1" Margin="0,24,10,0"/>
+                                    <Label Content="Number Set:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,26,0,0"/>
+                                    <TextBox x:Name="txtGameNoIncrement" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="46" FontFamily="Consolas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Text="1" Margin="0,59,10,0"/>
+                                    <Label Content="Increment:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,62,0,0"/>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Height="40">
+                            <Grid>
+                                <Button x:Name="btnSave" Content="Save-all" Width="75" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="btnSave_Click" Margin="10,0,0,5"/>
+                                <CheckBox x:Name="chkTeamTimeout" Content="Team Timeout" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="90,0,0,10" Height="20" VerticalAlignment="Bottom"/>
+                                <CheckBox x:Name="chkSuddenDeath" Content="Sudden Death" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="220,0,0,10" Height="20" VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Files">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Height="230">
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="160" Height="100" BorderThickness="2"/>
+                                    <Label Content="Outputs Enabled" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <CheckBox x:Name="chkGoalTextOutput" Content="Goals" Margin="22,19,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="chkGoalTextOutput_CheckChanged" Unchecked="chkGoalTextOutput_CheckChanged"/>
+                                    <CheckBox x:Name="chkGameNumberTextOutput" Content="Game No" Margin="22,59,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="chkGameNumberTextOutput_CheckChanged" Unchecked="chkGameNumberTextOutput_CheckChanged"/>
+                                    <CheckBox x:Name="chkGameTextOutput" Content="Game Half Text" Margin="22,39,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="chkGameTextOutput_CheckChanged" Unchecked="chkGameTextOutput_CheckChanged"/>
+                                    <CheckBox x:Name="chkGameTimeOutput" Content="Game Time" Margin="22,79,0,-2" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="chkGameTimeOutput_CheckChanged" Unchecked="chkGameTimeOutput_CheckChanged"/>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Controller">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Height="230">
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="210" Height="86" BorderThickness="2"/>
+                                    <Label Content="Buttons Enabled" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <CheckBox x:Name="chkGoalAward" Content="Award Goals" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="chkGoalAward_CheckChanged" Unchecked="chkGoalAward_CheckChanged"/>
+                                    <CheckBox x:Name="chkTeamTimeControl" Content="Team Timeout" HorizontalAlignment="Left" Margin="22,44,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="chkTeamTimeControl_CheckChanged" Unchecked="chkTeamTimeControl_CheckChanged"/>
+                                    <CheckBox x:Name="chkRefTimeControl" Content="Ref Timeout" HorizontalAlignment="Left" Margin="22,69,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Checked="chkRefTimeControl_CheckChanged" Unchecked="chkRefTimeControl_CheckChanged"/>
+                                </Grid>
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="210" Height="100" BorderThickness="2"/>
+                                    <Label Content="Settings" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <CheckBox x:Name="chkControllerEnabled" Content="Controller Enabled" Checked="chkControllerEnabled_CheckChanged" HorizontalAlignment="Left" Margin="25,22,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Unchecked="chkControllerEnabled_CheckChanged"/>
+                                    <Button x:Name="btnCheckController" Content="Check connection" HorizontalAlignment="Right" Margin="0,47,47,0" Width="148" Click="btnCheckController_Click" Height="25" VerticalAlignment="Top"/>
+                                    <Button x:Name="btnKeyBindings" Content="Key Bindings" HorizontalAlignment="Left" Margin="25,77,0,0" Width="116" Height="25" VerticalAlignment="Top" Click="btnKeyBindings_Click"/>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Program">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical" Height="195">
+                                <Grid>
+                                    <Label HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" BorderBrush="Black" Width="200" Height="86" BorderThickness="2"/>
+                                    <Label Content="Buzzer Sound" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="2,0"/>
+                                    <TextBox x:Name="txtBuzzerName" HorizontalAlignment="Right" Height="30"  TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontFamily="Consolas" VerticalContentAlignment="Center" FontSize="16" Text="buzzer.wav" Margin="0,24,10,0" Padding="0"/>
+                                    <Label Content="Name:" HorizontalAlignment="Left"  VerticalAlignment="Top" Padding="2,0" Margin="20,26,0,0"/>
+                                    <Button x:Name="btnSetBuzzer" Height="30" Content="Set Buzzer" Margin="59,59,0,8" HorizontalAlignment="Left" Width="106" Click="btnSetBuzzer_Click"/>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Grid>
+                                <Button x:Name="btnExit" Content="Exit Program" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="110" Height="28" Click="btnExit_Click"/>
+                                <Button x:Name="btnCloseSettings" Content="Close Settings" HorizontalAlignment="Right" Margin="0,0,10,43" VerticalAlignment="Bottom" Width="110" Click="btnCloseSettings_Click" Height="28"/>
+                                <Button x:Name="btnSetSecondGUI" Content="Set Second GUI Location" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="200" Click="btnSetSecondGUI_Click"/>
+                                <Label Content="Copyright © 2020 Jared Paalvast, All Rights Reserved" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
